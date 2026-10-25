@@ -1,0 +1,29 @@
+<!-- Output: html -->
+<!-- File: index.html -->
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>イラスト練習ラボ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/browser@0.80.5/build/style.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.80.5/build/stlite.js";
+
+      mount(
+        {
+          requirements: ["numpy", "pandas", "pillow"],
+          entrypoint: "app.py",
+          files: {
+            "app.py": { url: "./app.py" },
+          },
+          idbfsMountpoints: ["/mnt"],
+        },
+        document.getElementById("root"),
+      );
+    </script>
+  </body>
+</html>
