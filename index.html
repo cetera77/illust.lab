@@ -4,26 +4,23 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>イラスト練習ラボ</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@stlite/browser@0.80.5/build/style.css" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module">
-      import { mount } from "https://cdn.jsdelivr.net/npm/@stlite/browser@0.80.5/build/stlite.js";
-
-      mount(
-        {
-          requirements: ["numpy", "pandas", "pillow"],
-          entrypoint: "app.py",
-          files: {
-            "app.py": { url: "./app.py" },
-          },
-          idbfsMountpoints: ["/mnt"],
-        },
-        document.getElementById("root"),
-      );
-    </script>
+    <aside class="sidebar">
+      <div class="brand">🎨 イラスト練習ラボ</div>
+      <nav class="nav" id="nav"></nav>
+      <div class="sidebar-footer">
+        <div class="streak">🔥 連続練習 <strong id="sidebar-streak">0</strong> 日</div>
+        <div class="muted small">毎日少しずつでも描くことが上達への近道です。</div>
+      </div>
+    </aside>
+    <main id="main" class="main"></main>
+    <div id="toast" class="toast-box" aria-live="polite"></div>
   </body>
 </html>
